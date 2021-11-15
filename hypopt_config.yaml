@@ -4,10 +4,10 @@ model:
   function_name: "main_train"
   copy_data: false
 git_options:
-  git_uri: "git@github.com:aimat-lab/ExpOLEDPred.git"
+  git_uri: "git@github.com/ClintvanHoesel/MXMNet_adapted.git"
   branch: main
 experiment:
-  experiment_name: "MXM_vecs"
+  experiment_name: "MXM_vecssh"
   cluster: "bwunicluster"
   number_chain_jobs: 4
   multimetric_experiment: true
@@ -43,7 +43,7 @@ parameters:
     transformation: log
     bounds:
       max: 1.0e-1
-      min: 1.0e-6
+      min: 1.0e-5
   - name: batch_size
     type: double
     transformation: log
@@ -89,7 +89,7 @@ parameters:
     type: double
     transformation: log
     bounds:
-      max: 100000.
+      max: 1000.
       min: 10.
   - name: dropout
     type: double
@@ -97,6 +97,12 @@ parameters:
     bounds:
       max: 0.1
       min: 0.000001
+  - name: delta_huber
+    type: double
+    transformation: log
+    bounds:
+      max: 10.
+      min: 0.1
 metrics:
   - name: val_mae_loss
     objective: minimize
