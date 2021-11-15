@@ -1,0 +1,140 @@
+model:
+  dataset_path: "/pfs/work7/workspace/scratch/fw5046-EGNN_Clint/processed"
+  entry_point: "mainsigopt.py"
+  function_name: "main_train"
+  copy_data: false
+git_options:
+  git_uri: "git@github.com:aimat-lab/ExpOLEDPred.git"
+  branch: main
+experiment:
+  experiment_name: "MXM_vecs"
+  cluster: "bwunicluster"
+  number_chain_jobs: 4
+  multimetric_experiment: true
+  use_local_workspace: false
+modules:
+  - "devel/cuda/10.2"
+  - "devel/cudnn/10.2"
+parameters:
+  - name: clip
+    type: float
+    transformation: log
+    bounds:
+      max: 50.
+      min: 0.5
+  - name: gamma_epoch
+    type: double
+    transformation: log
+    bounds:
+      max: 300
+      min: 10
+  - name: num_workers
+    type: int
+    bounds:
+      max: 3
+      min: 8
+  - name: procs
+    type: int
+    bounds:
+      max: 4
+      min: 16
+  - name: learning_rate
+    type: double
+    transformation: log
+    bounds:
+      max: 1.0e-1
+      min: 1.0e-6
+  - name: batch_size
+    type: double
+    transformation: log
+    bounds:
+      max: 257.
+      min: 16.
+  - name: outdim
+    type: double
+    transformation: log
+    bounds:
+      max: 512.
+      min: 64.
+  - name: hidden_parameters
+    type: double
+    transformation: log
+    bounds:
+      max: 256.
+      min: 16.
+  - name: n_layer
+    type: int
+    bounds:
+      max: 7.
+      min: 3.
+  - name: weight_decay
+    type: double
+    transformation: log
+    bounds:
+      max: 0.1
+      min: 0.000001
+  - name: cutoff
+    type: double
+    transformation: log
+    bounds:
+      max: 10.
+      min: 2.
+  - name: beta_one
+    type: double
+    transformation: log
+    bounds:
+      max: 100.
+      min: 5.
+  - name: beta_two
+    type: double
+    transformation: log
+    bounds:
+      max: 100000.
+      min: 10.
+  - name: dropout
+    type: double
+    transformation: log
+    bounds:
+      max: 0.1
+      min: 0.000001
+metrics:
+  - name: val_mae_loss
+    objective: minimize
+    strategy: optimize
+  - name: time
+    objective: minimize
+    strategy: optimize
+  - name: train_total_loss
+    objective: minimize
+    strategy: store
+  - name: val_total_loss
+    objective: minimize
+    strategy: store
+  - name: val_total_loss_epoch
+    objective: minimize
+    strategy: store
+  - name: val_mse_loss
+    objective: minimize
+    strategy: store
+  - name: train_total_loss_epoch
+    objective: minimize
+    strategy: store
+  - name: train_mse_loss
+    objective: minimize
+    strategy: store
+  - name: train_mae_loss
+    objective: minimize
+    strategy: store
+sbatch_options:
+  partition: "gpu_4"
+  gres: "gpu:1"
+  ntasks: 10
+  mem: 94000
+  time: "48:00:00"
+  constraint: "LSDF"
+sigopt_options:
+  dev_run: false
+  project_name: "mxm-vecs-pred"
+  client_id: 11735
+  observation_budget: 180
+  parallel_bandwidth: 4
