@@ -285,7 +285,6 @@ dependencies:
     - smmap==5.0.0
     - tabulate==0.8.9
     - typing-inspect==0.7.1
-    - warmup-scheduler==0.3.2
     - websocket-client==1.2.1
     - yamldataclassconfig==1.5.0
 prefix: /home/kit/iti/fw5046/conda/envs/ST
