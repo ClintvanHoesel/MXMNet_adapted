@@ -140,7 +140,7 @@ sbatch_options:
   constraint: "LSDF"
 sigopt_options:
   dev_run: false
-  project_name: "mxmvecspred"
+  project_name: "experimental-oled-pred"
   client_id: 11735
   observation_budget: 180
   parallel_bandwidth: 4
