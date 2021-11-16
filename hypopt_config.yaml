@@ -31,13 +31,13 @@ parameters:
   - name: num_workers
     type: int
     bounds:
-      max: 3
-      min: 8
+      max: 8
+      min: 3
   - name: procs
     type: int
     bounds:
-      max: 4
-      min: 16
+      max: 16
+      min: 4
   - name: learning_rate
     type: double
     transformation: log
