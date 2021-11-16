@@ -17,7 +17,7 @@ modules:
   - "devel/cudnn/10.2"
 parameters:
   - name: clip
-    type: float
+    type: double
     transformation: log
     bounds:
       max: 50.
@@ -26,8 +26,8 @@ parameters:
     type: double
     transformation: log
     bounds:
-      max: 300
-      min: 10
+      max: 300.
+      min: 10.
   - name: num_workers
     type: int
     bounds:
@@ -65,8 +65,8 @@ parameters:
   - name: n_layer
     type: int
     bounds:
-      max: 7.
-      min: 3.
+      max: 7
+      min: 3
   - name: weight_decay
     type: double
     transformation: log
