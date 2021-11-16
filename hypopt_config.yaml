@@ -4,7 +4,7 @@ model:
   function_name: "main_train"
   copy_data: false
 git_options:
-  git_uri: "git@github.com/ClintvanHoesel/MXMNet_adapted.git"
+  git_uri: "git@github.com:ClintvanHoesel/MXMNet_adapted.git"
   branch: main
 experiment:
   experiment_name: "MXMvecssh"
