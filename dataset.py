@@ -234,8 +234,9 @@ class MoleculeMemoryDataset(InMemoryDataset):
         # print(data_list[:5])
         
         if self.pre_transform is not None:
-            data_list = Parallel(n_jobs=self.config.procs, verbose=1,prefer="processes"
-                                 )(delayed(self.pre_transform)(data) for data in data_list)
+            data_list = [self.pre_transform(data) for data in data_list]
+            # data_list = Parallel(n_jobs=self.config.procs, verbose=1,prefer="processes"
+            #                      )(delayed()(data) for data in data_list)
             # data_list = [self.pre_transform(data) for data in data_list]
         print(len(data_list))
         
