@@ -132,7 +132,7 @@ metrics:
     objective: minimize
     strategy: store
 sbatch_options:
-  partition: "gpu_4"
+  partition: "gpu_8"
   gres: "gpu:1"
   ntasks: 10
   mem: 94000
