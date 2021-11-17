@@ -27,7 +27,7 @@ def main_train(config):
                     batch_size = int(config["batch_size"]),
                     splits = 0.75,
                     patience = max(30, config["gamma_epoch"]),
-                    max_epochs = 400,
+                    max_epochs = max(300, config["gamma_epoch"]*2),
                     max_input = 0,
                     progress_bar = 0,
                     accelerator = None,

@@ -7,7 +7,7 @@ git_options:
   git_uri: "git@github.com:ClintvanHoesel/MXMNet_adapted.git"
   branch: main
 experiment:
-  experiment_name: "MXMvecssh5"
+  experiment_name: "MXMvecssh6"
   cluster: "bwunicluster"
   number_chain_jobs: 4
   multimetric_experiment: true
