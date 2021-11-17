@@ -63,7 +63,7 @@ def main_train(config):
                     )
     config.name_model = config.name_model + "orb" + str(config.orbs) + "mo" + "".join(str(i) for i in config.mo_indices) + f"dim{config.dim}" + f"cutoff{config.cutoff}" + f"n_layer{config.n_layer}"
     config.name_model = ''.join(config.name_model.split('.'))
-    print(f"config = {config}")
+    # print(f"config = {config}")
     trainer = Trainer(config)
     
     start = time.time()
